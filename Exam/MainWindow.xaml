@@ -1,0 +1,45 @@
+﻿<Window x:Class="Exam.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exam"
+        mc:Ignorable="d"
+        Background="Black"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="64*"/>
+            <ColumnDefinition Width="717*"/>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="304*"/>
+            <RowDefinition Height="97*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.ColumnSpan="3" Grid.RowSpan="3" Source="https://www.creativepiano.at/wp-content/uploads/2017/01/star-wars-picture.png" ></Image>
+        <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="http://getwallpapers.com/wallpaper/full/5/0/e/1336561-gorgerous-star-wars-cell-phone-wallpaper-1600x2560-for-lockscreen.jpg" ></Image>
+        <DataGrid  Background="Transparent" Foreground="Gold" AutoGenerateColumns="False" IsReadOnly="True" x:Name="DataGrid" Grid.Column="1" Grid.RowSpan="2">
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Black" />
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Width="30*" Binding="{Binding Name}" CellStyle="{DynamicResource DataGridCellStyle}"/>
+                <DataGridTextColumn Header="Рост" Width="12*" Binding="{Binding Height}" CellStyle="{DynamicResource DataGridCellStyle}"/>
+                <DataGridTextColumn Header="Вес" Width="12*" Binding="{Binding Mass}" CellStyle="{DynamicResource DataGridCellStyle}"/>
+                    <DataGridTextColumn Header="Цвет Волос" Width="20*" Binding="{Binding HairColor}" CellStyle="{DynamicResource DataGridCellStyle}"/>
+                <DataGridTextColumn Header="Цвет Кожи" Width="20*" Binding="{Binding EyeColor}" CellStyle="{DynamicResource DataGridCellStyle}"/>
+                <DataGridTextColumn Header="Год рождения" Width="20*" Binding="{Binding BirthYear}" CellStyle="{DynamicResource DataGridCellStyle}"/>
+                <DataGridTextColumn Header="Пол" Width="15*" Binding="{Binding Gender}" CellStyle="{DynamicResource DataGridCellStyle}"/>
+                <DataGridTextColumn Header="Родной край" Width="20*" Binding="{Binding Homeworld}" CellStyle="{DynamicResource DataGridCellStyle}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="0,5,0,0">
+            <TextBox Grid.Column="1" Height="30" Grid.Row="2" x:Name="PageTextBlock" Margin="395,22,0,21" Width="160" Background="Black" Foreground="Gold" BorderThickness="2" BorderBrush="Gold"/>
+            <Button Grid.Column="1" Height="30" Width="120" Grid.Row="2" x:Name="DownLoadButton" Margin="20,22,154,21" Content="Download" Foreground="Gold" FontSize="15" Background="Black" BorderThickness="2" BorderBrush="Gold" Click="Download"/>
+        </StackPanel>
+    </Grid>
+</Window>
